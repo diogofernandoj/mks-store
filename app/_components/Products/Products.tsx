@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ProductsContainer } from "./Products.styled";
 import { IProduct } from "@/app/_lib/types";
+import ProductItem from "../ProductItem";
 
 const Products = () => {
   const fetchProducts = async () => {
@@ -19,10 +20,14 @@ const Products = () => {
     return <div>Carregando...</div>;
   }
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <ProductsContainer>
       {data.products.map((product: IProduct) => (
-        <div key={product.id}>{product.name}</div>
+        <ProductItem key={product.id} product={product} />
       ))}
     </ProductsContainer>
   );
