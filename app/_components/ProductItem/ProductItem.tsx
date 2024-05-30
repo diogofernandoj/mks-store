@@ -8,12 +8,20 @@ import {
   PurchaseButton,
 } from "./ProductItem.styled";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { addProduct } from "@/app/store/cartSlice";
 
 interface ProductItemProps {
   product: IProduct;
 }
 
 const ProductItem = ({ product }: ProductItemProps) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product: IProduct) => {
+    dispatch(addProduct(product));
+  };
+
   return (
     <ProductItemContainer>
       <Image
@@ -32,7 +40,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
 
       <ProductDescription>{product.description}</ProductDescription>
 
-      <PurchaseButton>
+      <PurchaseButton onClick={() => handleAddToCart(product)}>
         <Image
           src="/shopping-bag.png"
           alt="Shopping Bag"
