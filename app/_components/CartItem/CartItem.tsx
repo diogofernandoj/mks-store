@@ -1,8 +1,52 @@
-import { ReactNode } from "react";
-import { ItemContainer } from "./CartItem.styled";
+import {
+  CartItemName,
+  ItemContainer,
+  ItemTotalPrice,
+  Quantity,
+  QuantityContainer,
+  QuantityControl,
+  QuantityControls,
+  QuantityHeader,
+} from "./CartItem.styled";
+import { ICartItem } from "@/app/store/cartSlice";
 
-const CartItem = ({ children }: { children: ReactNode }) => {
-  return <ItemContainer>{children}</ItemContainer>;
+import { decrementQuantity, incrementQuantity } from "@/app/store/cartSlice";
+import Image from "next/image";
+import { useDispatch } from "react-redux";
+
+const CartItem = ({ item }: { item: ICartItem }) => {
+  const dispatch = useDispatch();
+
+  return (
+    <ItemContainer>
+      <Image
+        src={item.photo}
+        alt={item.name}
+        height={0}
+        width={0}
+        sizes="100vw"
+        style={{
+          height: "3.75rem",
+          width: "3.15rem",
+          objectFit: "contain",
+        }}
+      />
+      <CartItemName>{item.name}</CartItemName>
+      <QuantityContainer>
+        <QuantityHeader>Qtd:</QuantityHeader>
+        <QuantityControls>
+          <QuantityControl onClick={() => dispatch(decrementQuantity(item.id))}>
+            -
+          </QuantityControl>
+          <Quantity>{item.quantity}</Quantity>
+          <QuantityControl onClick={() => dispatch(incrementQuantity(item.id))}>
+            +
+          </QuantityControl>
+        </QuantityControls>
+      </QuantityContainer>
+      <ItemTotalPrice>R${Number(item.price)}</ItemTotalPrice>
+    </ItemContainer>
+  );
 };
 
 export default CartItem;
