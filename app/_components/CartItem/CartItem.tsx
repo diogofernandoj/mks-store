@@ -7,8 +7,9 @@ import {
   QuantityControl,
   QuantityControls,
   QuantityHeader,
+  RemoveItemButton,
 } from "./CartItem.styled";
-import { ICartItem } from "@/app/store/cartSlice";
+import { ICartItem, removeProductFromCart } from "@/app/store/cartSlice";
 
 import { decrementQuantity, incrementQuantity } from "@/app/store/cartSlice";
 import Image from "next/image";
@@ -19,6 +20,11 @@ const CartItem = ({ item }: { item: ICartItem }) => {
 
   return (
     <ItemContainer>
+      <RemoveItemButton
+        onClick={() => dispatch(removeProductFromCart(item.id))}
+      >
+        X
+      </RemoveItemButton>
       <Image
         src={item.photo}
         alt={item.name}

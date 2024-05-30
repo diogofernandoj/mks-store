@@ -26,7 +26,7 @@ export const CartHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  margin: 2rem 0;
+  margin-top: 2rem;
 `;
 
 export const CartTitle = styled.h2`
@@ -55,6 +55,9 @@ export const CartContent = styled.div`
   height: max-content;
   overflow-y: auto;
   flex: 1;
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: 1rem;
 `;
 
 export const CheckoutContainer = styled.div`

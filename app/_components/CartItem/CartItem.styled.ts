@@ -7,10 +7,26 @@ export const ItemContainer = styled.div`
   padding: 1rem;
   background-color: #fff;
   color: #000;
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const RemoveItemButton = styled.button`
+  border: none;
+  background-color: #000;
+  color: #fff;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.4rem;
+  border-radius: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  z-index: 11;
+  overflow: hidden;
 `;
 
 export const CartItemName = styled.p`
