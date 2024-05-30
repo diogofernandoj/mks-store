@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const NavbarContainer = styled.nav`
+export const NavbarContainer = styled(motion.nav)`
   background-color: ${({ theme }) => theme.colors.primary};
   width: 100%;
   height: 6.25rem;

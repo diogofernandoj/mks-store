@@ -3,12 +3,18 @@ import CartButton from "../CartButton";
 import Logo from "../Logo";
 import { NavbarContainer, Wrapper } from "./Navbar.styled";
 import Cart from "../Cart";
+import { fadeIn } from "@/app/_lib/animation/variants";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <NavbarContainer>
+    <NavbarContainer
+      variants={fadeIn("down", 0.2)}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+    >
       <Wrapper>
         <Logo />
         <span onClick={() => setOpen(true)}>
