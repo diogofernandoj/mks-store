@@ -18,4 +18,5 @@ export const CartQuantity = styled.p`
   font-weight: 700;
   font-size: 1.1rem;
   line-height: 1.4rem;
+  color: #000;
 `;
