@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ProductsContainer } from "./Products.styled";
 import { IProduct } from "@/app/_lib/types";
 import ProductItem from "../ProductItem";
+import ProductSkeleton from "../ProductSkeleton";
 
 const Products = () => {
   const fetchProducts = async () => {
@@ -17,7 +18,13 @@ const Products = () => {
   });
 
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return (
+      <ProductsContainer>
+        {new Array(8).fill("").map((item, index) => (
+          <ProductSkeleton key={index} />
+        ))}
+      </ProductsContainer>
+    );
   }
 
   if (error) {
