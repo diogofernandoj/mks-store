@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addProduct } from "@/app/store/cartSlice";
+import { fadeIn } from "@/app/_lib/animation/variants";
 
 interface ProductItemProps {
   product: IProduct;
@@ -23,7 +24,12 @@ const ProductItem = ({ product }: ProductItemProps) => {
   };
 
   return (
-    <ProductItemContainer>
+    <ProductItemContainer
+      variants={fadeIn("right", 0.2)}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+    >
       <Image
         src={product.photo}
         alt={product.name}
