@@ -26,4 +26,15 @@ describe("Home component", () => {
     expect(screen.getByTestId("products")).toBeInTheDocument();
     expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
+
+  it("should renders with the correct theme", () => {
+    render(
+      <ThemeProvider theme={theme}>
+        <Home />
+      </ThemeProvider>
+    );
+
+    const navbar = screen.getByTestId("navbar");
+    expect(navbar).toHaveStyle(`background-color: ${theme.colors.primary}`);
+  });
 });
