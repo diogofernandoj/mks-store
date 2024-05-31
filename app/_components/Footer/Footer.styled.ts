@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const FooterContainer = styled.footer`
+export const FooterContainer = styled(motion.footer)`
   background-color: #eee;
   height: 2.1rem;
   display: flex;
