@@ -7,6 +7,7 @@ import ProductItem from "../app/_components/ProductItem";
 import { IProduct } from "../app/_lib/types";
 import { ThemeProvider } from "styled-components";
 import { mockTheme } from "../__mocks__/styleMock";
+import { addProduct } from "../app/store/cartSlice";
 
 jest.mock("react-redux", () => ({
   useDispatch: jest.fn(),
@@ -57,5 +58,14 @@ describe("ProductItem component", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(mockProduct.description)).toBeInTheDocument();
     expect(screen.getByAltText(mockProduct.name)).toBeInTheDocument();
+  });
+
+  it("should dispatch addProduct action when Buy button is clicked", () => {
+    renderWithTheme(<ProductItem product={mockProduct} />);
+
+    const purchaseButton = screen.getByText("Comprar");
+    fireEvent.click(purchaseButton);
+
+    expect(dispatch).toHaveBeenCalledWith(addProduct(mockProduct));
   });
 });
