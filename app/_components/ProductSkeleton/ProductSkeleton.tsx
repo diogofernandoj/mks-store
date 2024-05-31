@@ -9,10 +9,10 @@ import {
 const ProductSkeleton = () => {
   return (
     <SkeletonContainer>
-      <SkeletonImage as={AnimatedSkeleton} />
-      <SkeletonText as={AnimatedSkeleton} />
-      <SkeletonText as={AnimatedSkeleton} />
-      <SkeletonButton as={AnimatedSkeleton} />
+      <SkeletonImage as={AnimatedSkeleton} data-testid="skeleton-image" />
+      <SkeletonText as={AnimatedSkeleton} data-testid="skeleton-text" />
+      <SkeletonText as={AnimatedSkeleton} data-testid="skeleton-text" />
+      <SkeletonButton as={AnimatedSkeleton} data-testid="skeleton-button" />
     </SkeletonContainer>
   );
 };
