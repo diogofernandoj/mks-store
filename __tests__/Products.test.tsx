@@ -52,4 +52,39 @@ describe("Products component", () => {
 
     expect(screen.getByText("Error: Failed to fetch")).toBeInTheDocument();
   });
+
+  it("should render product items on successful fetch", async () => {
+    const products = [
+      {
+        id: 1,
+        name: "Product 1",
+        brand: "Brand 1",
+        description: "Description 1",
+        price: "1",
+        photo: "ImageURL",
+      },
+      {
+        id: 2,
+        name: "Product 2",
+        brand: "Brand 2",
+        description: "Description 2",
+        price: "1",
+        photo: "ImageURL",
+      },
+    ];
+
+    (useQuery as jest.Mock).mockReturnValue({
+      data: { products },
+      error: null,
+      isLoading: false,
+    });
+
+    render(<Products />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("products")).toBeInTheDocument();
+      expect(screen.getByText("Product 1")).toBeInTheDocument();
+      expect(screen.getByText("Product 2")).toBeInTheDocument();
+    });
+  });
 });
