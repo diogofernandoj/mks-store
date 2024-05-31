@@ -35,17 +35,22 @@ const renderWithTheme = (component: React.ReactElement) => {
 };
 
 describe("Navbar component", () => {
-  it("should renders the Navbar component", () => {
+  it("should render the Navbar component", () => {
     renderWithTheme(<Navbar />);
     expect(screen.getByTestId("navbar")).toBeInTheDocument();
   });
 
-  it("should displays Cart when CartButton is clicked", () => {
+  it("should display Cart when CartButton is clicked", () => {
     renderWithTheme(<Navbar />);
 
     const cartButton = screen.getByText("CartButton");
     fireEvent.click(cartButton);
 
     expect(screen.getByText("Cart")).toBeInTheDocument();
+  });
+
+  it("should hide Cart initially", () => {
+    renderWithTheme(<Navbar />);
+    expect(screen.queryByText("Cart")).not.toBeInTheDocument();
   });
 });
