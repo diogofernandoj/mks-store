@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { ProductsContainer } from "./Products.styled";
-import { IProduct } from "@/app/_lib/types";
+import { IProduct } from "../../_lib/types";
 import ProductItem from "../ProductItem";
 import ProductSkeleton from "../ProductSkeleton";
 
