@@ -10,4 +10,12 @@ describe("Logo component", () => {
     expect(screen.getByText("MKS")).toBeInTheDocument();
     expect(screen.getByText("Sistemas")).toBeInTheDocument();
   });
+
+  it("should render the LogoContainer", () => {
+    const { container } = render(<Logo />);
+    const logoContainer = container.firstChild;
+
+    expect(logoContainer).toBeInTheDocument();
+    expect(logoContainer).toHaveStyle("display: flex");
+  });
 });
