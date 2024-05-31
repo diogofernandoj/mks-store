@@ -1,6 +1,6 @@
 // Navbar.test.tsx
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Navbar from "../app/_components/Navbar";
 import { ThemeProvider } from "styled-components";
@@ -38,5 +38,14 @@ describe("Navbar component", () => {
   it("should renders the Navbar component", () => {
     renderWithTheme(<Navbar />);
     expect(screen.getByTestId("navbar")).toBeInTheDocument();
+  });
+
+  it("should displays Cart when CartButton is clicked", () => {
+    renderWithTheme(<Navbar />);
+
+    const cartButton = screen.getByText("CartButton");
+    fireEvent.click(cartButton);
+
+    expect(screen.getByText("Cart")).toBeInTheDocument();
   });
 });
