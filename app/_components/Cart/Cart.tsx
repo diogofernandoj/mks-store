@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CartItem from "../CartItem/CartItem";
+import CartItem from "../CartItem";
 import {
   CartContainer,
   CartTitle,
