@@ -40,4 +40,16 @@ describe("Products component", () => {
     expect(screen.getByTestId("products")).toBeInTheDocument();
     expect(screen.getAllByText("Loading...").length).toBe(8);
   });
+
+  it("should render error message on error", () => {
+    (useQuery as jest.Mock).mockReturnValue({
+      data: null,
+      error: { message: "Failed to fetch" },
+      isLoading: false,
+    });
+
+    render(<Products />);
+
+    expect(screen.getByText("Error: Failed to fetch")).toBeInTheDocument();
+  });
 });
