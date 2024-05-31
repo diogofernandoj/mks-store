@@ -1,4 +1,4 @@
-import { IProduct } from "@/app/_lib/types";
+import { IProduct } from "../../_lib/types";
 import {
   NameAndPriceWrapper,
   ProductDescription,
@@ -9,8 +9,8 @@ import {
 } from "./ProductItem.styled";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
-import { addProduct } from "@/app/store/cartSlice";
-import { fadeIn } from "@/app/_lib/animation/variants";
+import { addProduct } from "../../store/cartSlice";
+import { fadeIn } from "../../_lib/animation/variants";
 
 interface ProductItemProps {
   product: IProduct;

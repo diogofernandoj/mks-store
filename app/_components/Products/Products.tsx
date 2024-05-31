@@ -19,7 +19,7 @@ const Products = () => {
 
   if (isLoading) {
     return (
-      <ProductsContainer>
+      <ProductsContainer data-testid="products">
         {new Array(8).fill("").map((item, index) => (
           <ProductSkeleton key={index} />
         ))}
@@ -32,7 +32,7 @@ const Products = () => {
   }
 
   return (
-    <ProductsContainer>
+    <ProductsContainer data-testid="products">
       {data.products.map((product: IProduct) => (
         <ProductItem key={product.id} product={product} />
       ))}

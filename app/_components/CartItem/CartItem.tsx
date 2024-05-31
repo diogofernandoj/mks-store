@@ -9,9 +9,13 @@ import {
   QuantityHeader,
   RemoveItemButton,
 } from "./CartItem.styled";
-import { ICartItem, removeProductFromCart } from "@/app/store/cartSlice";
+import {
+  ICartItem,
+  removeProductFromCart,
+  decrementQuantity,
+  incrementQuantity,
+} from "../../store/cartSlice";
 
-import { decrementQuantity, incrementQuantity } from "@/app/store/cartSlice";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 

@@ -3,7 +3,7 @@ import CartButton from "../CartButton";
 import Logo from "../Logo";
 import { NavbarContainer, Wrapper } from "./Navbar.styled";
 import Cart from "../Cart";
-import { fadeIn } from "@/app/_lib/animation/variants";
+import { fadeIn } from "../../_lib/animation/variants";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,6 +14,7 @@ const Navbar = () => {
       initial="hidden"
       animate="show"
       exit="hidden"
+      data-testid="navbar"
     >
       <Wrapper>
         <Logo />
