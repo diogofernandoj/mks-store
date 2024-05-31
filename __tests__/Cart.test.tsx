@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { useSelector } from "react-redux";
 import Cart from "../app/_components/Cart";
@@ -70,5 +70,13 @@ describe("Cart component", () => {
     expect(screen.getByText("Item 2")).toBeInTheDocument();
 
     expect(screen.getByText("R$40")).toBeInTheDocument();
+  });
+
+  it("should call setOpen with false when CloseCartButton is clicked", () => {
+    const setOpen = jest.fn();
+    renderWithTheme(<Cart isOpen={true} setOpen={setOpen} />);
+
+    fireEvent.click(screen.getByText("X"));
+    expect(setOpen).toHaveBeenCalledWith(false);
   });
 });
