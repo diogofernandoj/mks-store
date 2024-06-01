@@ -1,6 +1,9 @@
-// cartSlice.test.ts
 import { IProduct } from "../app/_lib/types";
-import cartReducer, { addProduct, ICartItem } from "../app/store/cartSlice";
+import cartReducer, {
+  addProduct,
+  ICartItem,
+  incrementQuantity,
+} from "../app/store/cartSlice";
 
 describe("cartSlice", () => {
   const initialState = {
@@ -26,5 +29,13 @@ describe("cartSlice", () => {
     const actual = cartReducer(initialState, addProduct(product));
     expect(actual.items.length).toEqual(1);
     expect(actual.items[0]).toEqual({ ...product, quantity: 1 });
+  });
+
+  it("should handle incrementQuantity", () => {
+    const initialWithProduct = {
+      items: [{ ...product, quantity: 1 }],
+    };
+    const actual = cartReducer(initialWithProduct, incrementQuantity(1));
+    expect(actual.items[0].quantity).toEqual(2);
   });
 });
