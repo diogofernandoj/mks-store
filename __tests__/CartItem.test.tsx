@@ -72,4 +72,11 @@ describe("CartItem component", () => {
     fireEvent.click(screen.getByText("-"));
     expect(dispatch).toHaveBeenCalledWith(decrementQuantity(mockItem.id));
   });
+
+  it("should dispatch incrementQuantity when increment button is clicked", () => {
+    render(<CartItem item={mockItem} />);
+
+    fireEvent.click(screen.getByText("+"));
+    expect(dispatch).toHaveBeenCalledWith(incrementQuantity(mockItem.id));
+  });
 });
