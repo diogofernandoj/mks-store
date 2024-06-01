@@ -47,4 +47,12 @@ describe("cartSlice", () => {
     const actual = cartReducer(initialWithProduct, decrementQuantity(1));
     expect(actual.items[0].quantity).toEqual(1);
   });
+
+  it("should remove item if decrementQuantity reaches zero", () => {
+    const initialWithProduct = {
+      items: [{ ...product, quantity: 1 }],
+    };
+    const actual = cartReducer(initialWithProduct, decrementQuantity(1));
+    expect(actual.items.length).toEqual(0);
+  });
 });
