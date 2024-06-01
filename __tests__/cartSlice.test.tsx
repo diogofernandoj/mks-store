@@ -4,6 +4,7 @@ import cartReducer, {
   decrementQuantity,
   ICartItem,
   incrementQuantity,
+  removeProductFromCart,
 } from "../app/store/cartSlice";
 
 describe("cartSlice", () => {
@@ -53,6 +54,14 @@ describe("cartSlice", () => {
       items: [{ ...product, quantity: 1 }],
     };
     const actual = cartReducer(initialWithProduct, decrementQuantity(1));
+    expect(actual.items.length).toEqual(0);
+  });
+
+  it("should handle removeProductFromCart", () => {
+    const initialWithProduct = {
+      items: [{ ...product, quantity: 1 }],
+    };
+    const actual = cartReducer(initialWithProduct, removeProductFromCart(1));
     expect(actual.items.length).toEqual(0);
   });
 });
