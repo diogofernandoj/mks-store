@@ -54,7 +54,7 @@ const CartItem = ({ item }: { item: ICartItem }) => {
           </QuantityControl>
         </QuantityControls>
       </QuantityContainer>
-      <ItemTotalPrice>R${Number(item.price)}</ItemTotalPrice>
+      <ItemTotalPrice>R${Number(item.price) * item.quantity}</ItemTotalPrice>
     </ItemContainer>
   );
 };
