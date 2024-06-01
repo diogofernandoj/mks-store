@@ -65,4 +65,11 @@ describe("CartItem component", () => {
     fireEvent.click(screen.getByText("X"));
     expect(dispatch).toHaveBeenCalledWith(removeProductFromCart(mockItem.id));
   });
+
+  it("should dispatch decrementQuantity when decrement button is clicked", () => {
+    render(<CartItem item={mockItem} />);
+
+    fireEvent.click(screen.getByText("-"));
+    expect(dispatch).toHaveBeenCalledWith(decrementQuantity(mockItem.id));
+  });
 });
