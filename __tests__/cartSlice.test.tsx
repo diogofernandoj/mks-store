@@ -1,6 +1,7 @@
 import { IProduct } from "../app/_lib/types";
 import cartReducer, {
   addProduct,
+  decrementQuantity,
   ICartItem,
   incrementQuantity,
 } from "../app/store/cartSlice";
@@ -37,5 +38,13 @@ describe("cartSlice", () => {
     };
     const actual = cartReducer(initialWithProduct, incrementQuantity(1));
     expect(actual.items[0].quantity).toEqual(2);
+  });
+
+  it("should handle decrementQuantity", () => {
+    const initialWithProduct = {
+      items: [{ ...product, quantity: 2 }],
+    };
+    const actual = cartReducer(initialWithProduct, decrementQuantity(1));
+    expect(actual.items[0].quantity).toEqual(1);
   });
 });
