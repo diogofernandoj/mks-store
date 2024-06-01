@@ -58,4 +58,11 @@ describe("CartItem component", () => {
     expect(screen.getByText("R$20")).toBeInTheDocument();
     expect(screen.getByAltText("Item 1")).toBeInTheDocument();
   });
+
+  it("should dispatch removeProductFromCart when remove button is clicked", () => {
+    render(<CartItem item={mockItem} />);
+
+    fireEvent.click(screen.getByText("X"));
+    expect(dispatch).toHaveBeenCalledWith(removeProductFromCart(mockItem.id));
+  });
 });
