@@ -10,6 +10,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Products from "./_components/Products";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const queryClient = new QueryClient();
@@ -23,6 +25,7 @@ const Home = () => {
           <Products />
           <Footer />
         </ThemeProvider>
+        <ToastContainer autoClose={3000} />
       </Provider>
     </QueryClientProvider>
   );

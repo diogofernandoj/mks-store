@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/cartSlice";
 import { fadeIn } from "../../_lib/animation/variants";
+import { toast } from "react-toastify";
 
 interface ProductItemProps {
   product: IProduct;
@@ -21,6 +22,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
 
   const handleAddToCart = (product: IProduct) => {
     dispatch(addProduct(product));
+    toast("Produto adicionado ao carrinho!");
   };
 
   return (
