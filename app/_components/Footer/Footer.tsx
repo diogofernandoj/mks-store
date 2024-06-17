@@ -10,7 +10,7 @@ const Footer = () => {
       exit="hidden"
       data-testid="footer"
     >
-      <FooterText>MKS sistemas © Todos os direitos reservados</FooterText>
+      <FooterText>Frontend Challenge © Todos os direitos reservados</FooterText>
     </FooterContainer>
   );
 };
