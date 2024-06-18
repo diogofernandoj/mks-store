@@ -8,7 +8,7 @@ describe("Footer component", () => {
     render(<Footer />);
 
     expect(
-      screen.getByText("MKS sistemas © Todos os direitos reservados")
+      screen.getByText("Frontend Challenge © Todos os direitos reservados")
     ).toBeInTheDocument();
   });
 });

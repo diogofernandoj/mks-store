@@ -7,8 +7,8 @@ describe("Logo component", () => {
   it("should render the Logo component with correct text", () => {
     render(<Logo />);
 
-    expect(screen.getByText("MKS")).toBeInTheDocument();
-    expect(screen.getByText("Sistemas")).toBeInTheDocument();
+    expect(screen.getByText("Frontend")).toBeInTheDocument();
+    expect(screen.getByText("Challenge")).toBeInTheDocument();
   });
 
   it("should render the LogoContainer", () => {
